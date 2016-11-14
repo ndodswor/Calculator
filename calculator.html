@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<link rel="stylesheet" href="calculator.css">
+</head>
+	<body>	
+		<div id='calculatorWrapper' ng-app='myApp'>
+		  <section id="dudaRevenueCalculator" ng-controller="myRevenueController">
+			<h1>
+				 Revenue Calculator
+				</h1> I'm charging my clients to build their site:
+			<br/>
+			<input id="chargeBuild" class="range build charge" ng-model="chargeToBuild" type="range" min="0" max="5000" step="10" />
+			<div class="output">
+			  {{chargeToBuild}}
+			</div>
+			<br/> I'm charging my clients monthly to maintain their site:
+			<br/>
+			<input id="chargeMonth" class="range month charge" ng-model="chargeToMaintain" type="range" min="0" max="1000" step="5" />
+			<div class="output">
+			  {{chargeToMaintain}}
+			</div>
+			<div id="revenueResult">
+			  <table>
+				<tr>
+				  <th>Sites Sold Per Month</th>
+				  <th>Initial Income Each Month</th>
+				  <th>Recurring Income Each Month</th>
+				  <th>First Year's Revenue</th>
+				</tr>
+				<tr ng-repeat="number in saleNumbers">
+				  <td>{{number}}</td>
+				  <td>{{number * chargeToBuild | currency:"$"}}</td>
+				  <td>{{number * chargeToMaintain | currency:"$"}}</td>
+				  <td>{{number * (chargeToBuild * 12 + chargeToMaintain * 78) | currency:"$"}}</td>
+				</tr>
+				 <tr>
+				  <td><input id='myNumberInput' placeholder=' +' type='number' ng-model='myNumber'>
+				  </input>
+				  </td>
+				  <td>{{myNumber * chargeToBuild | currency:"$"}}</td>
+				  <td>{{myNumber * chargeToMaintain | currency:"$"}}</td>
+				  <td>{{myNumber * (chargeToBuild * 12 + chargeToMaintain * 78) | currency:"$"}}</td>
+				</tr>
+			  </table>
+			</div>
+			<p>
+			  Note: Costs assume sites are monthly responsive sites
+			</p>
+		  </section>
+		  <section id="dudaCostCalculator" ng-controller="myCostController">
+			<h1>
+				 Cost Calculator
+			</h1> 
+			<ul>
+			  <li ng-repeat="(Period, Types) in plans">
+				<ul>
+				I'm building some sites I want to pay for each {{Period}}.
+				  <li ng-repeat="(Type, Quantity) in Types">
+					 <input min="0" type="number" value="0" placeholder="0" name="{{Type}}" ng-model="plans[Period][Type]" />
+					 {{Type}} Sites
+				  </li>
+				</ul>
+			  </li>
+			</ul>
+			<div id="result">
+			  <p ng-if="subTotal('month') > 0">Monthly cost: {{subTotal('month') | currency:"$"}}</p>
+			  <p ng-if="subTotal('year') > 0">Yearly cost: {{subTotal('year') | currency:"$"}}</p>
+			  <p ng-if="subTotal('lifetime') > 0">One-time cost: {{subTotal('lifetime') | currency:"$"}}</p>
+			  <p ng-if="checkbox.reseller === 'reseller'">Account is {{checkbox.reseller}}</p>
+			</div>
+		  </section>
+		</div>
+		<script src="calculator.js" type="text/javascript">
+	  </body>
+  </html>

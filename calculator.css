@@ -1,0 +1,123 @@
+input.number,
+input.checkbox {
+  width: 40px !important;
+  display: inline-block !important;
+  margin-right: 5px !important;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  height: auto !important;
+}
+
+div.output {
+  display: inline-block;
+}
+
+section#dudaPriceCalculator {
+  line-height: 1.5em !important;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+section {
+  text-align: left;
+}
+
+div#result,
+div#revenueResult {
+  background-color: #222;
+  color: #fff;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+div#result {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+div#profitResult {
+  text-align: center;
+}
+
+table {
+  width: 100%;
+}
+
+table,
+th,
+td {
+  border: 0px solid white;
+  border-collapse: collapse;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+tr:nth-child(odd) {
+  background-color: #333;
+}
+
+tr:nth-child(even) {
+  background-color: #555;
+}
+
+th {
+  background-color: #ed7233;
+  padding: 5px !important;
+}
+
+th,
+td {
+  padding: 2px;
+}
+
+input.range {
+  width: 80%;
+}
+
+input[type='number'] {
+  width: 50px;
+}
+
+div#result p {
+  margin: 0px;
+}
+
+section#dudaCostCalculator ul li {
+  margin-left: 0px; 
+  list-style: none;
+}
+
+section#dudaCostCalculator ul {
+  padding-left: 0px;
+}
+input#myNumberInput{
+  background-color: inherit;
+  color: inherit;
+  border: 0px;
+  font-size:inherit;
+  font-family: inherit;
+  padding: 0px;
+  margin: 0px;
+}
+
+div#result {
+    margin-top: 10px;
+    padding: 10px;
+}
+
+div#result p {
+  margin: 0px;
+}
+
+ div.dmInner input[type="number"]{
+     width: 100px;
+     height: auto;
+     margin: 0px 5px;
+ }
+ 
+ div#upperFloatingNav{
+     display:none !important;
+ }
